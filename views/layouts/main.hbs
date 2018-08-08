@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DoDo codes</title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+<!---CDN Links-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<link href="/css/style.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top text-uppercase">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">Dodo Blog</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            {{#if user}}
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/user/details">Welcome({{user.email}})</a></li>
+                        <li><a href="/posts/create">New Article</a></li>
+                        <li><a href="/user/logout">Logout</a></li>
+                    </ul>
+                </div>
+            {{/if}}
+            {{#unless user}}
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/posts">Posts</a></li>
+                        <li><a href="/user/register">Register</a></li>
+                        <li><a href="/user/login">Login</a></li>
+                    </ul>
+                </div>
+            {{/unless}}
+        </div>
+</nav>
+<br/><br/>
+{{{body}}}
+</body>
+<footer class="footer">
+    <div class="container modal-footer">
+        <p class="text-center">&copy; 2018 - Dodocodes</p>
+    </div>
+</footer>
+</html>

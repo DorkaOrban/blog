@@ -1,0 +1,26 @@
+
+<div class="container body-content">
+    <div class="space row">
+        {{#each posts}}
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
+                <div class="post-design" >
+                    <div class="post-header">
+                        <h2>{{this.title}}</h2>
+                    </div>
+
+                    <p>{{this.content}}
+                    </p>
+
+                    <small class="author">
+                        {{this.author}}
+                    </small>
+
+                    <div class="post-footer pull-right">
+                            <a class="btn btn-default btn-xs" href="/posts/details/{{this.id}}">Read more &raquo;</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        
+    </div>
+</div>
