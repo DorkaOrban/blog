@@ -1,9 +1,10 @@
 
 <div class="container body-content">
-    <div class="space row">
+    <div class="space align-center">
         {{#each posts}}
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
-                <div class="post-design" >
+            <div class="row">
+                 <img src="/images/uploads/{{this.img}}" alt="default img" width="180" height="180" class="img img-responsive img-thumbnail pull-left" />
+                <div class="ustify-content-md-center col-md-10" >
                     <div class="post-header">
                         <h2>{{this.title}}</h2>
                     </div>

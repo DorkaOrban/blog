@@ -16,12 +16,15 @@ module.exports = (app) => {
 
     app.get('/posts/create', postController.createGet);
     app.post('/posts/create', postController.createPost);
-    
     app.get('/posts/details/:id',postController.details);
 
     app.get('/posts', (req, res) => {
-        Post.findAll({ limit: 6}).then(posts =>{
-            res.render('posts',{posts: posts});
-        })
+        Post.findAll({ limit: 6, order:[['createdAt', 'DESC']] }).then(posts =>{
+            res.render('posts',{
+                posts, 
+                img: '/images/glasses.jpg'
+            }
+            );
+        });
     });
 };

@@ -1,10 +1,33 @@
 
+<section  id="header">
+<div class="container headerimage" style="">
+    <div class="header-part">
+    <div class=" row text-center center-block vertically-center"> 
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">   
+            <h2 class="header-title">{{headerTitle}}</h2>
+            <h2 class="header-title-white">{{headerSubtitle}}</h2>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <p class="header-description header-desc-max">
+                {{headerDescription}}
+            </p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  custom-btns">
+                <a href="javascript:void(0)"><button class="btn btn-default">{{testButton}}</button></a>
+        </div>      
+    </div> 
+     
+</div>
+</div>
+</section>
+<section id="informative-section" >
   {{#if showTitle}}
   <div class="jumbotron"> 
-    <h1 class="text-center" >{{welcomeMessage}}</h1>
+    <h4 class="text-center" >{{message}}</h4>
   </div>
     </div>
   {{/if}}
+</section>
 
 <section class="description-part" id="description-id">
     <div class="container align-center">
@@ -13,15 +36,15 @@
 
             <div class="mbr-white col-md-10">
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
-                    LOREM IPSUM DOLOR
+                    {{aboutMe}}
                 </h1>
                 
                 <p class="mbr-text pb-3 mbr-fonts-style display-5">
-                    Lorem ipsum dolor sit amet, ius ea decore inermis gubergren, qui nominati argumentum ea. Ea ludus ridens equidem vis. At vel tamquam omittam democritum, nam suavitate eloquentiam ad. Persius consetetur ad sea, ex atqui oportere pertinacia sed, veri deseruisse assueverit ius eu. Vim quando conceptam at.
+                    {{description}}
                 </p>
                 <div class="mbr-section-btn">
-                    <a class="btn btn-md btn-secondary display-4" href="#">LEARN MORE</a>
-                    <a class="btn btn-md btn-white-outline display-4" href="#">LIVE DEMO</a>
+                    <a class="btn btn-md btn-secondary display-4" href="#">{{readMore}}</a>
+                    <a class="btn btn-md btn-white-outline display-4" href="/user/login">{{goToLogin}}</a>
                 </div>
             </div>
         </div>

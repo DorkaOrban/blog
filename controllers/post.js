@@ -1,4 +1,6 @@
 const Post = require('../models').Post;
+const multer = require('multer');
+
 
 module.exports = {
  createGet: (req, res) => {
@@ -27,10 +29,17 @@ module.exports = {
             articleArgs.authorId = typeof req !== 'undefined' && req.user.id  !== 'undefined' ? req.user.id : 1;
             articleArgs.date = Date.now();
             articleArgs.author = typeof req !== 'undefined' ? req.user.fullName : "Dodocodes";
+            
+            let postObject = {
+                title: articleArgs.title,
+                content: articleArgs.content,
+                date: articleArgs.date,
+                author: articleArgs.author,
+                img: articleArgs.img,
+            };
 
-            Post.create(articleArgs).then(article => {
+            Post.create(postObject).then(article => {
                 res.redirect('/posts');
-
             });
         }
  },

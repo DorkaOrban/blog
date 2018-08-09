@@ -6,13 +6,16 @@ const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const passport = require('passport');
-// const postController = require('/controllers/post');
+// const multer = require('multer');
+const morgan = require('morgan');
+const postsController = require('./controllers/post');
+
 app.use(bodyParser());
 app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
+app.use(morgan('dev'));
 // We will use cookies.
 app.use(cookieParser('pesho'));
 app.use(express.static('/public/images'));
@@ -27,6 +30,7 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+// app.use(fileUpload());
 
 require('./config/passport')();
 require('./config/routes')(app);
@@ -38,12 +42,6 @@ app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.use(express.static(__dirname));
 app.set('view engine', '.hbs');
 
-
-
-app.post('*',  (res, req) => {
-  console.log('body: ', req.body)
-  console.log('query: ', req.query)
-})
 
 app.use((req, res, next) => {
   if (req.user) {
@@ -64,7 +62,7 @@ var hbs = exphbs.create({
 });
 
 app.get('/', (req, res) => {
-
+  console.log(req.user)
   res.render('index', {
     showTitle: true,
     anyArray: ["codergirl", "womanintech", "dodocodes"],
@@ -89,3 +87,10 @@ app.get('/test/:id', (req,res, next) =>{
     output: req.params.id
   })
 });
+
+
+// const multerConfig = require('./config/multerConfig');
+
+// app.post('/posts/create',multer(multerConfig).single('img'),(req,res) => {
+//   res.send('Complete!');
+// });

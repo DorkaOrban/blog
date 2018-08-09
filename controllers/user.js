@@ -41,9 +41,9 @@ module.exports = {
                             res.render('user/register', registerArgs);
                             return;
                         }
-                        res.redirect('/')
-                    })
-                })
+                        res.redirect('/posts/create');
+                    });
+                });
             }
         })
     },
@@ -70,7 +70,7 @@ module.exports = {
                     return;
                 }
 
-                res.redirect('/');
+                res.redirect('/posts/create');
             })
         })
     },
