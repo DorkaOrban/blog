@@ -70,7 +70,13 @@
     background-color: #e7e7e7;
     color: #000;
     text-align: center;
-    margin-top: 480px;
+    margin-top: 20px;
+}
+.footer2{
+    margin-top: 20px;
+}
+footer{
+    margin-top: 480px !important;
 }
 .post-design{
     border-left: 6px double red;
