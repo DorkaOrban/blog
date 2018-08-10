@@ -6,20 +6,20 @@ const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const passport = require('passport');
-// const multer = require('multer');
+const fileUpload = require('express-fileupload');
+
 const morgan = require('morgan');
 const postsController = require('./controllers/post');
-
 app.use(bodyParser());
+app.use(fileUpload());
 app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(morgan('dev'));
-// We will use cookies.
+
 app.use(cookieParser('pesho'));
 app.use(express.static('/public/images'));
-// app.use(express.static(__dirname + '/images'));
 
 app.use(expressValidator());
 app.use(expressSession({
@@ -30,7 +30,7 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(fileUpload());
+
 
 require('./config/passport')();
 require('./config/routes')(app);
@@ -87,10 +87,3 @@ app.get('/test/:id', (req,res, next) =>{
     output: req.params.id
   })
 });
-
-
-// const multerConfig = require('./config/multerConfig');
-
-// app.post('/posts/create',multer(multerConfig).single('img'),(req,res) => {
-//   res.send('Complete!');
-// });

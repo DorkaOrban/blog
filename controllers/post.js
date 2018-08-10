@@ -29,13 +29,22 @@ module.exports = {
             articleArgs.authorId = typeof req !== 'undefined' && req.user.id  !== 'undefined' ? req.user.id : 1;
             articleArgs.date = Date.now();
             articleArgs.author = typeof req !== 'undefined' ? req.user.fullName : "Dodocodes";
-            
+            console.log('req.files', req.files.img)
+            let image = req.files.img;
+            image.mv('./images/uploads/'+image.name, (err) => {
+                if (err){
+                    console.log('error', err);
+                    return;
+                }
+                console.log("UPLOADED YEEEEEAH ");
+            });
+
             let postObject = {
                 title: articleArgs.title,
                 content: articleArgs.content,
                 date: articleArgs.date,
                 author: articleArgs.author,
-                img: articleArgs.img,
+                img: image.name,
             };
 
             Post.create(postObject).then(article => {
