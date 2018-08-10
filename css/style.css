@@ -30,6 +30,10 @@
     width: 100%;
     height: 680px;
 }
+.modal-footer{
+    position: relative;
+    bottom: 0;
+}
 
 .vertically-center {
     position: relative;
@@ -66,7 +70,7 @@
     background-color: #e7e7e7;
     color: #000;
     text-align: center;
-    margin-top: 290px;
+    margin-top: 480px;
 }
 .post-design{
     border-left: 6px double red;
