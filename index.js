@@ -65,6 +65,7 @@ app.get('/', (req, res) => {
   console.log(req.user)
   res.render('index', {
     showTitle: true,
+    user: this.author,
     anyArray: ["codergirl", "womanintech", "dodocodes"],
     helpers: {
       welcomeMessage: () => "Hello Everyone! Welcome to my Personal blog!", 
@@ -84,6 +85,7 @@ app.get('/contact', (req, res) => {
 
 app.get('/test/:id', (req,res, next) =>{
   res.render('test', {
-    output: req.params.id
+    output: req.params.id,
+    user: this.author
   })
 });
