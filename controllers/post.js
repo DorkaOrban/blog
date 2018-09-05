@@ -4,7 +4,9 @@ const multer = require('multer');
 
 module.exports = {
  createGet: (req, res) => {
-    res.render('posts/create');
+    res.render('posts/create', {
+        user: typeof req.user !== 'undefined'? req.user.username : null
+    });
  },
 
  createPost: (req, res) => {
@@ -23,7 +25,10 @@ module.exports = {
             }
            
             if (errorMsg) {
-                res.render('posts/create', {error: errorMsg});
+                res.render('posts/create', {
+                    error: errorMsg,
+                    user: typeof req.user !== 'undefined'? req.user.username : null
+                });
                 return;
             }
             articleArgs.authorId = typeof req !== 'undefined' && req.user.id  !== 'undefined' ? req.user.id : 1;
@@ -56,7 +61,10 @@ module.exports = {
  details: (req,res) => {
         let id = req.params.id;
         Post.findById(id).then(article => {
-            res.render('posts/details',article.dataValues)
+            res.render('posts/details',{
+                dataValues: article.dataValues, 
+                user: typeof req.user !== 'undefined'? req.user.username : null
+            })
         })
  }
 };

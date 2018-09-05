@@ -74,6 +74,13 @@ module.exports = {
             })
         })
     },
+    loggedIn: (req, res, next) => {
+        if (req.user) {
+            next();
+        } else {
+            res.redirect('user/login');
+        }
+    },
 
     logout: (req, res) => {
         req.logOut();

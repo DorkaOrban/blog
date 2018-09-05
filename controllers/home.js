@@ -14,7 +14,8 @@ module.exports = {
                 goToLogin: 'GO TO LOGIN',
                 showTitle: true,
                 message: "Did you heard the news?",
-                img: '/images/glasses.jpg'
+                img: '/images/glasses.jpg', 
+                user: typeof req.user !== 'undefined'? req.user.username : null
             }
         );
     }
