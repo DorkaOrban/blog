@@ -78,7 +78,7 @@ module.exports = {
         if (req.user) {
             next();
         } else {
-            res.redirect('user/login');
+            res.redirect('/user/login');
         }
     },
 
