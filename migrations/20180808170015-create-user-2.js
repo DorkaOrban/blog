@@ -21,13 +21,13 @@ module.exports = {
       },
       passwordHash: {
         type: Sequelize.STRING,
-        required: true,
-        allowNull: false
+        required: false,
+        allowNull: true
       },
       salt: {
         type: Sequelize.STRING,
-        required: true,
-        allowNull: false
+        required: false,
+        allowNull: true
       },
       fullName: {
         type: Sequelize.STRING
